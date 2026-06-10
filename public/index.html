@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SignalOps Status</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Cloud-Native Incident Platform</p>
+          <h1>SignalOps Status</h1>
+        </div>
+        <div class="top-actions">
+          <button class="ghost" id="refreshButton" type="button">Refresh</button>
+          <div class="status-pill" id="overallStatus">Checking</div>
+        </div>
+      </header>
+
+      <section class="metrics" id="metrics"></section>
+
+      <section class="workspace">
+        <div class="panel services-panel">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Monitored Services</p>
+              <h2>Health Checks</h2>
+            </div>
+          </div>
+          <div class="service-grid" id="services"></div>
+        </div>
+
+        <aside class="panel side-panel">
+          <div class="section-title compact">
+            <div>
+              <p class="eyebrow">Add Target</p>
+              <h2>Service</h2>
+            </div>
+          </div>
+          <form id="serviceForm" class="service-form">
+            <label>
+              Name
+              <input name="name" placeholder="Payments API" required />
+            </label>
+            <label>
+              Health URL
+              <input name="url" placeholder="https://api.example.com/health" required />
+            </label>
+            <label>
+              Runbook
+              <textarea name="runbook" rows="3" placeholder="Restart task and verify dependencies"></textarea>
+            </label>
+            <div class="form-row">
+              <label>
+                Timeout
+                <input name="timeoutMs" type="number" value="2500" min="500" step="100" />
+              </label>
+              <label>
+                Failures
+                <input name="failureThreshold" type="number" value="2" min="1" />
+              </label>
+            </div>
+            <label class="check-row">
+              <input name="autoRecovery" type="checkbox" checked />
+              Auto-recovery
+            </label>
+            <button type="submit">Add Service</button>
+          </form>
+        </aside>
+      </section>
+
+      <section class="lower-grid">
+        <div class="panel">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Incident Lifecycle</p>
+              <h2>Recent Incidents</h2>
+            </div>
+          </div>
+          <div id="incidents" class="timeline"></div>
+        </div>
+        <div class="panel">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Automation Feed</p>
+              <h2>Events</h2>
+            </div>
+          </div>
+          <div id="events" class="timeline"></div>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

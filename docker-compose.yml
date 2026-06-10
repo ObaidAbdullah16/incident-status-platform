@@ -1,0 +1,14 @@
+services:
+  incident-status:
+    build: .
+    container_name: incident-status-platform
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      CHECK_INTERVAL_MS: "10000"
+      RECOVERY_COOLDOWN_MS: "30000"
+      DATA_DIR: "/app/data"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

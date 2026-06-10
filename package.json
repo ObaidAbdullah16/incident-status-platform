@@ -1,0 +1,14 @@
+{
+  "name": "cloud-native-incident-status-platform",
+  "version": "1.0.0",
+  "description": "Cloud-native incident status and auto-recovery platform for AWS ECS/Fargate.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "check": "node --check src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

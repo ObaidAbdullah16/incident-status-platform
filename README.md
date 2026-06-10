@@ -251,6 +251,7 @@ After this, every push to `main` builds the image, pushes it to ECR, and restart
 
 This project shows how production systems detect failures and recover. The app probes services, tracks failure thresholds to avoid false alarms, opens incidents, triggers recovery, and closes incidents after successful checks. The cloud setup demonstrates containers, load balancing, TLS, DNS, logs, and CI/CD.
 
+
 ## Cleanup
 
 ```bash
